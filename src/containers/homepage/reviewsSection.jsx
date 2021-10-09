@@ -9,24 +9,21 @@ import { useMediaQuery } from "react-responsive";
 
 import "pure-react-carousel/dist/react-carousel.es.css";
 
-import {
-  costumer1,
-  costumer2,
-  costumer3,
-  costumer4,
-  costumer5,
-} from "../../assets/images";
+import { Carousel } from "react-responsive-carousel";
 
 const ReviewsContainer = styled(Element)`
-  height: auto;
+  height: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f5f5f5;
+  align-items: center;
+  justify-content: center;
 `;
 
-const StyledCarouselProvider = styled(CarouselProvider)`
+const StyledCarouselProvider = styled(Carousel)`
   width: 50%;
+
   @media screen and (max-width: 480px) {
     width: 100%;
   }
@@ -68,6 +65,20 @@ export function ReviewsSection(props) {
       <SectionTitle>Our Clients</SectionTitle>
       <Marginer direction="vertical" margin="3em" />
       <StyledCarouselProvider
+        showThumbs={false}
+        autoPlay
+        showArrows
+        interval={1500}
+        infiniteLoop
+        // width={isNotMobile ? 400 : 300}
+        centerMode
+      >
+        {props.images.map((item) => {
+          return <img src={item} style={{ width: 200, height: 200 }} />;
+        })}
+      </StyledCarouselProvider>
+
+      {/* <StyledCarouselProvider
         naturalSlideWidth={!isNotMobile ? 200 : 300}
         naturalSlideHeight={!isNotMobile ? 150 : 205}
         totalSlides={5}
@@ -114,7 +125,7 @@ export function ReviewsSection(props) {
         </Slider>
         <Marginer margin={"2em"} />
         <StyledDotGroup />
-      </StyledCarouselProvider>
+      </StyledCarouselProvider> */}
     </ReviewsContainer>
   );
 }

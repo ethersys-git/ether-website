@@ -44,9 +44,6 @@ export function Logo(props) {
   return (
     <LogoContainer inline={inline} small={small}>
       <LogoImg src={logo} inline={inline} small={small} />
-      {/* <LogoText inline={inline} small={small}>
-        Ethersys
-      </LogoText> */}
     </LogoContainer>
   );
 }

@@ -17,7 +17,6 @@ import {
   solution2,
   solution3,
   costumer1,
-  costumer2,
   costumer3,
   costumer4,
   costumer5,
@@ -40,7 +39,7 @@ const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
-const costumers = [costumer1, costumer2, costumer3, costumer4, costumer5];
+const costumers = [costumer1, costumer3, costumer4, costumer5];
 
 const CoreOfferingCards = ({ title, description, icon, reverse }) => {
   return (
@@ -241,7 +240,7 @@ export function Homepage(props) {
       <PartitionWithCaraousal {...productata} reverse />
       {/* <ServicesSection /> */}
       <Marginer direction="vertical" margin="2em" />
-      <ReviewsSection />
+      <ReviewsSection images={costumers} />
       {/* <MoreAboutSection /> */}
       <Footer />
     </PageContainer>

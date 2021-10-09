@@ -1,10 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styled from "styled-components";
 import { Button } from "../button";
 import { Logo } from "../logo";
 import { Marginer } from "../marginer";
-import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -111,21 +109,11 @@ export function Footer(props) {
       <Marginer direction="vertical" margin="5em" />
       <Logo />
       <Marginer direction="vertical" margin="5em" />
-      {/* <AccessibilityContainer>
-        <PrivacyContainer>
-          <Link>Privacy Policy</Link>
-          <Link>Terms of Service</Link>
-          <Link>Contact</Link>
-        </PrivacyContainer>
-        <SocialContainer>
-          <SocialIcon>
-            <FontAwesomeIcon icon={faTwitter} />
-          </SocialIcon>
-          <SocialIcon>
-            <FontAwesomeIcon icon={faLinkedin} />
-          </SocialIcon>
-        </SocialContainer>
-      </AccessibilityContainer> */}
+
+      <Link>Contact Us:- sales@ethersys.in</Link>
+      <Marginer direction="vertical" margin="5em" />
+      <Marginer direction="vertical" margin="5em" />
+
       <RightsReserved>
         Copyright © 2020 | Ether Daylight Systems PVT. LTD.
       </RightsReserved>

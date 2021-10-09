@@ -15,7 +15,6 @@ import product4 from "./Products/ENode1061.JPG";
 import product5 from "./Products/ENode12014G.JPG";
 import product6 from "./Products/LoRaWAN.JPG";
 import costumer1 from "./costumers/veerometals.jpg";
-import costumer2 from "./costumers/cisco.png";
 import costumer3 from "./costumers/orbEnergy.png";
 import costumer4 from "./costumers/rvce.JPG";
 import costumer5 from "./costumers/ults.png";
@@ -43,7 +42,6 @@ export {
   solution2,
   solution3,
   costumer1,
-  costumer2,
   costumer3,
   costumer4,
   costumer5,

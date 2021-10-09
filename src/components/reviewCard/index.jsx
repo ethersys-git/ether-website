@@ -1,6 +1,3 @@
-import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Image } from "pure-react-carousel";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
@@ -74,7 +71,7 @@ export function ReviewCard(props) {
       <Marginer direction="vertical" margin="6em" />
       <ReviewText>{reviewText}</ReviewText>
     <Line /> */}
-      <Image src={userImgUrl} />
+      <img src={userImgUrl} />
     </CardContainer>
   );
 }
