@@ -1,12 +1,14 @@
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Image } from "pure-react-carousel";
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 import { Marginer } from "../marginer";
 
 const CardContainer = styled.div`
-  width: 350px;
-  height: 430px;
+  // width: 350px;
+  // height: 300px;
   background-color: #fff;
   box-shadow: 0px 0px 7px rgba(17, 17, 17, 0.2);
   border-radius: 3px;
@@ -58,20 +60,21 @@ const Username = styled.span`
 
 export function ReviewCard(props) {
   const { reviewText, username, userImgUrl } = props;
-
+  const isNotMobile = useMediaQuery({ minWidth: 768 });
+  let style = {};
+  if (!isNotMobile) {
+    style.width = 300;
+    style.height = 300;
+  }
   return (
-    <CardContainer>
-      <QuoteIcon>
+    <CardContainer style={style}>
+      {/* <QuoteIcon>
         <FontAwesomeIcon icon={faQuoteLeft} />
       </QuoteIcon>
       <Marginer direction="vertical" margin="6em" />
       <ReviewText>{reviewText}</ReviewText>
-      <Marginer direction="vertical" margin="7em" />
-      <Line />
-      <UserDetails>
-        <UserImg src={userImgUrl} />
-        <Username>{username}</Username>
-      </UserDetails>
+    <Line /> */}
+      <Image src={userImgUrl} />
     </CardContainer>
   );
 }

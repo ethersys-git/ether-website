@@ -8,12 +8,15 @@ import { faTwitter, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const FooterContainer = styled.div`
   width: 100%;
-  height: 500px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: #1f1f1f;
   position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 `;
 
 const MotivationalText = styled.h1`
@@ -98,8 +101,6 @@ const Link = styled.a`
 const RightsReserved = styled.div`
   position: absolute;
   bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
   color: #fff;
   font-size: 12px;
 `;
@@ -108,14 +109,9 @@ export function Footer(props) {
   return (
     <FooterContainer>
       <Marginer direction="vertical" margin="5em" />
-      <Logo small />
-      <Marginer direction="vertical" margin="1em" />
-      <MotivationalText>Just say the magical word</MotivationalText>
-      <MotivationalText>and we will do the rest</MotivationalText>
-      <Marginer direction="vertical" margin="1em" />
-      <Button>Start your Project</Button>
+      <Logo />
       <Marginer direction="vertical" margin="5em" />
-      <AccessibilityContainer>
+      {/* <AccessibilityContainer>
         <PrivacyContainer>
           <Link>Privacy Policy</Link>
           <Link>Terms of Service</Link>
@@ -129,8 +125,10 @@ export function Footer(props) {
             <FontAwesomeIcon icon={faLinkedin} />
           </SocialIcon>
         </SocialContainer>
-      </AccessibilityContainer>
-      <RightsReserved>&copy; 2020 Beema All rights reserved</RightsReserved>
+      </AccessibilityContainer> */}
+      <RightsReserved>
+        Copyright © 2020 | Ether Daylight Systems PVT. LTD.
+      </RightsReserved>
     </FooterContainer>
   );
 }

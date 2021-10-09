@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from "react-responsive";
 import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 import {
@@ -15,6 +16,14 @@ import {
   solution1,
   solution2,
   solution3,
+  costumer1,
+  costumer2,
+  costumer3,
+  costumer4,
+  costumer5,
+  coeIcon,
+  connect_living,
+  iiotIcon,
 } from "../../assets/images";
 import { Footer } from "../../components/footer";
 import { Marginer } from "../../components/marginer";
@@ -24,12 +33,17 @@ import { ReviewsSection } from "./reviewsSection";
 import { ServicesSection } from "./servicesSection";
 import { TopSection } from "./topSection";
 
+const ItemsContainer = styled.div`
+  width: 90%;
+`;
+
 const PageContainer = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100%;
   display: flex;
   flex-direction: column;
 `;
+const costumers = [costumer1, costumer2, costumer3, costumer4, costumer5];
 
 const CoreOfferingCards = ({ title, description, icon, reverse }) => {
   return (
@@ -41,7 +55,8 @@ const CoreOfferingCards = ({ title, description, icon, reverse }) => {
         display: "flex",
         flex: 1,
         minWidth: 400,
-        margin: 20,
+        marginTop: 20,
+        marginBottom: 20,
       }}
     >
       <img src={icon} style={{ height: 100, width: 100 }} />
@@ -60,16 +75,19 @@ const coreoffering = [
     title: "Industrial IoT 4.0",
     description:
       "Industry 4.0 spans the entire ecosystem - sales, inventory, scheduling, quality, engineering, consumers and field maintenance. Flow of Information is constantly maintained enabling up-to-date production, processes and timely analytics",
+    icon: iiotIcon,
   },
   {
     title: "Building Management System",
     description:
       " BMS automates the processes and Provides visibility and control over the work space via interaction between nodes and sensors which manages the ease of workflow.",
+    icon: connect_living,
   },
   {
     title: "Energy - Management System",
     description:
       "EMS optimize the performance of the use of energy system. Enabling to be used in either small scale or large scale network.",
+    icon: coeIcon,
   },
 ];
 
@@ -101,6 +119,7 @@ const techoffering = [
 ];
 
 const OfferingComponent = ({ title, data, reverse }) => {
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
   return (
     <div
       style={{
@@ -109,6 +128,8 @@ const OfferingComponent = ({ title, data, reverse }) => {
         justifyContent: "center",
         display: "flex",
         flexDirection: "column",
+        paddingLeft: 40,
+        paddingRight: 40,
       }}
     >
       <h1 style={{ color: !reverse ? "#fff" : "#074d99", alignSelf: "center" }}>
@@ -119,7 +140,8 @@ const OfferingComponent = ({ title, data, reverse }) => {
           alignItems: "center",
           justifyContent: "center",
           display: "flex",
-          padding: 40,
+          paddingTop: 40,
+          paddingBottom: 40,
           flexWrap: "wrap",
         }}
       >
@@ -145,18 +167,32 @@ const productata = {
 };
 
 const PartitionWithCaraousal = ({ title, description, images, reverse }) => {
+  const isDesktop = useMediaQuery({ minWidth: 768 });
   return (
-    <div style={{ display: "flex", padding: 20 }}>
+    <div
+      style={{
+        display: "flex",
+        padding: 80,
+        backgroundColor: reverse ? "#ffffff" : "#f5f5f5",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: isDesktop
+          ? "row"
+          : reverse
+          ? "column"
+          : "column-reverse",
+      }}
+    >
       {reverse && (
         <Carousel
-        showThumbs={false}
-        autoPlay
-        showArrows
-        interval={1500}
-        infiniteLoop
-        width={400}
-        showStatus={false}
-        showIndicators={false}
+          showThumbs={false}
+          autoPlay
+          showArrows
+          interval={1500}
+          infiniteLoop
+          width={isDesktop ? 400 : 300}
+          showStatus={false}
+          showIndicators={false}
         >
           {images.map((item) => {
             return <img src={item} style={{ width: 200, height: 300 }} />;
@@ -164,8 +200,8 @@ const PartitionWithCaraousal = ({ title, description, images, reverse }) => {
         </Carousel>
       )}
       <div style={{}}>
-        <h2>{title}</h2>
-        <h4>{description}</h4>
+        <h2 style={{ fontWeight: 400 }}>{title}</h2>
+        <h4 style={{ fontWeight: 200 }}>{description}</h4>
       </div>
       {!reverse && (
         <Carousel
@@ -174,7 +210,7 @@ const PartitionWithCaraousal = ({ title, description, images, reverse }) => {
           showArrows
           interval={1500}
           infiniteLoop
-          width={400}
+          width={isDesktop ? 400 : 300}
           showStatus={false}
           showIndicators={false}
         >
@@ -187,8 +223,14 @@ const PartitionWithCaraousal = ({ title, description, images, reverse }) => {
   );
 };
 
+const Default = ({ children }) => {
+  const isNotMobile = useMediaQuery({ minWidth: 768 });
+  return isNotMobile ? children : null;
+};
+
 export function Homepage(props) {
   const { reverse } = props;
+
   return (
     <PageContainer>
       <TopSection />
@@ -200,12 +242,10 @@ export function Homepage(props) {
       />
       <PartitionWithCaraousal {...solutionData} />
       <PartitionWithCaraousal {...productata} reverse />
-
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <Marginer direction="vertical" margin="2em" />
       <ReviewsSection />
-      <MoreAboutSection />
-      <Marginer direction="vertical" margin="8em" />
+      {/* <MoreAboutSection /> */}
       <Footer />
     </PageContainer>
   );

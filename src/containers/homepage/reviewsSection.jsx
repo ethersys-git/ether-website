@@ -9,21 +9,24 @@ import { useMediaQuery } from "react-responsive";
 
 import "pure-react-carousel/dist/react-carousel.es.css";
 
-import User1Img from "../../assets/pictures/profile_picture_1.jpg";
-import User2Img from "../../assets/pictures/profile_picture_2.jpg";
-import User3Img from "../../assets/pictures/profile_picture_3.jpg";
-import User4Img from "../../assets/pictures/profile_picture_4.jpeg";
+import {
+  costumer1,
+  costumer2,
+  costumer3,
+  costumer4,
+  costumer5,
+} from "../../assets/images";
 
 const ReviewsContainer = styled(Element)`
-  height: 700px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f5f5f5;
 `;
 
 const StyledCarouselProvider = styled(CarouselProvider)`
   width: 50%;
-
   @media screen and (max-width: 480px) {
     width: 100%;
   }
@@ -37,7 +40,7 @@ const StyledSlide = styled(Slide)`
 `;
 
 const StyledDotGroup = styled(DotGroup)`
-  margin: auto;
+  margin: 20px;
   display: flex;
   justify-content: center;
   button {
@@ -58,49 +61,58 @@ const StyledDotGroup = styled(DotGroup)`
 `;
 
 export function ReviewsSection(props) {
-  const isMobile = useMediaQuery({ query: "(max-width: 480px)" });
+  const isNotMobile = useMediaQuery({ minWidth: 768 });
 
   return (
     <ReviewsContainer>
-      <SectionTitle>What others are saying about us</SectionTitle>
+      <SectionTitle>Our Clients</SectionTitle>
       <Marginer direction="vertical" margin="3em" />
       <StyledCarouselProvider
-        naturalSlideWidth={200}
-        naturalSlideHeight={isMobile ? 250 : 205}
-        totalSlides={4}
-        visibleSlides={isMobile ? 1 : 2}
-        dragEnabled={false}
+        naturalSlideWidth={!isNotMobile ? 200 : 300}
+        naturalSlideHeight={!isNotMobile ? 150 : 205}
+        totalSlides={5}
+        visibleSlides={!isNotMobile ? 1 : 3}
+        dragEnabled={true}
       >
         <Slider>
           <StyledSlide index={0}>
             <ReviewCard
-              reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
-              username="John coner"
-              userImgUrl={User1Img}
+              // reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
+              // username="John coner"
+              userImgUrl={costumer1}
             />
           </StyledSlide>
           <StyledSlide index={1}>
             <ReviewCard
-              reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
-              username="John coner"
-              userImgUrl={User2Img}
+              // reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
+              // username="John coner"
+              userImgUrl={costumer2}
             />
           </StyledSlide>
           <StyledSlide index={2}>
             <ReviewCard
-              reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
-              username="John coner"
-              userImgUrl={User3Img}
+              // reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
+              // username="John coner"
+              userImgUrl={costumer3}
             />
           </StyledSlide>
           <StyledSlide index={3}>
             <ReviewCard
-              reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
-              username="John coner"
-              userImgUrl={User4Img}
+              // reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
+              // username="John coner"
+              userImgUrl={costumer4}
+            />
+          </StyledSlide>
+
+          <StyledSlide index={4}>
+            <ReviewCard
+              // reviewText=" I very much enjoyed working with Beema and the team - they have an excellent grasp of their subject, and have created something great for us."
+              // username="John coner"
+              userImgUrl={costumer5}
             />
           </StyledSlide>
         </Slider>
+        <Marginer margin={"2em"} />
         <StyledDotGroup />
       </StyledCarouselProvider>
     </ReviewsContainer>

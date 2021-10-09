@@ -11,6 +11,10 @@ const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #f8f8f8;
+  position: fixed;
+  z-index: 2;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 `;
 
 const BrandContainer = styled.div``;
@@ -37,11 +41,11 @@ export function Navbar(props) {
       <BrandContainer>
         <Logo inline />
       </BrandContainer>
-      <AccessibilityContainer>
+      {/* <AccessibilityContainer>
         <Button small>Get Started</Button>
         <Marginer direction="horizontal" margin="8px" />
         <LoginButton small>Login</LoginButton>
-      </AccessibilityContainer>
+      </AccessibilityContainer> */}
     </NavbarContainer>
   );
 }
