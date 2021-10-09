@@ -3,7 +3,6 @@ import { Element } from "react-scroll";
 import styled from "styled-components";
 import { SectionTitle } from "../../components/sectionTitle";
 
-import AboutImgUrl from "../../assets/illustrations/rocket_launch_.png";
 
 const MoreAboutContainer = styled(Element)`
   min-height: 500px;
@@ -58,7 +57,7 @@ export function MoreAboutSection(props) {
           {<br />} So wether you are handling thousands of payment transactions
           or you’re just starting out, you are in the right place.
         </AboutText>
-        <AboutImg src={AboutImgUrl} />
+        {/* <AboutImg src={AboutImgUrl} /> */}
       </AboutContainer>
     </MoreAboutContainer>
   );

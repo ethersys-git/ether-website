@@ -5,10 +5,6 @@ import { Marginer } from "../../components/marginer";
 import { OurSerivce } from "../../components/ourService";
 import { SectionTitle } from "../../components/sectionTitle";
 
-import Service1Img from "../../assets/illustrations/web_development_.png";
-import Service2Img from "../../assets/illustrations/mobile_phone.png";
-import Service3Img from "../../assets/illustrations/bug_fixed.png";
-
 const ServicesContainer = styled(Element)`
   width: 100%;
   min-height: 1100px;
@@ -23,7 +19,7 @@ export function ServicesSection(props) {
     <ServicesContainer name="servicesSection">
       <SectionTitle>Best Quality Software</SectionTitle>
       <Marginer direction="vertical" margin="3em" />
-      <OurSerivce
+      {/* <OurSerivce
         title="Fully integrated services"
         description="We build and deliver fully integrated webapps
           with customized control panels that fit your 
@@ -44,7 +40,7 @@ export function ServicesSection(props) {
         and managers that ensures delivering the best 
         software quality for your company"
         imgUrl={Service3Img}
-      />
+      /> */}
     </ServicesContainer>
   );
 }

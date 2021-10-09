@@ -27,10 +27,7 @@ import {
 } from "../../assets/images";
 import { Footer } from "../../components/footer";
 import { Marginer } from "../../components/marginer";
-import { theme } from "../../theme";
-import { MoreAboutSection } from "./moreAboutSection";
 import { ReviewsSection } from "./reviewsSection";
-import { ServicesSection } from "./servicesSection";
 import { TopSection } from "./topSection";
 
 const ItemsContainer = styled.div`
